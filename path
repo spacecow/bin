@@ -1,0 +1,18 @@
+#!/home/johan/.rvm/rubies/ruby-1.9.2-head/bin/ruby
+
+def display_path
+  path.split(':').each_with_index do |line,i|
+    puts "#{i}: #{line}"
+  end
+end
+def path; %x[echo $PATH].chomp end
+
+if ARGV.size == 0
+  display_path
+elsif ARGV.size == 2
+  if ARGV[0] == "push"
+    p "export PATH=#{path}:#{ARGV[1]}"
+  end
+end
+
+

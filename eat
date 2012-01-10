@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+file = File.open(ARGV[0])
+content = ""
+file.each do |line|
+  if file.eof?
+    content += line.chomp
+  else
+    content += line
+  end
+end
+file = File.new(ARGV[0], "w")
+file.print content
+file.close

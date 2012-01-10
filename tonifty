@@ -1,0 +1,33 @@
+#!/home/johan/.rvm/rubies/ruby-1.9.2-head/bin/ruby
+
+file = ARGV.shift
+FILES = %w(update resets)
+if !FILES.include? file
+  puts "File: #{file} does not exist."
+  puts "tonifty (#{FILES.join(', ')}) <search> <commit mess>"
+  exit
+end
+search = ARGV.shift
+if search.nil?
+  puts "Input something to search for."
+  puts "tonifty (#{FILES.join(', ')}) <search> <commit mess>"
+  exit
+end
+lines = %x(cat /home/johan/bin/#{file}.txt | grep #{search}).split("\n")
+if lines.length > 1
+  puts "Ambigous match. Be more specifc about search."
+  puts "tonifty (#{FILES.join(', ')}) <search> <commit mess>"
+  exit
+elsif lines.length == 0
+  puts "No search hit."
+  puts "tonifty (#{FILES.join(', ')}) <search> <commit mess>"
+  exit
+end
+if ARGV.empty?
+  puts "No commit message."
+  puts "tonifty (#{FILES.join(', ')}) <search> <commit mess>"
+  exit
+end
+%x(#{lines.shift})
+%x(cd /home/johan/ruby/rails/nifty-generators && git commit -am "#{ARGV.join(" ")}")
+%x(cd /home/johan/ruby/rails/nifty-generators && git push origin master)

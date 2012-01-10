@@ -1,0 +1,10 @@
+cp features/resets/new.feature /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/cucumber/resets/ 
+cp app/controllers/resets_controller.rb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp db/migrate/20110627045914_create_resets.rb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp app/models/reset.rb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp app/views/resets/new.html.erb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp app/views/reset_mailer/reset_confirmation.text.erb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp app/mailers/reset_mailer.rb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp app/models/reset_password_controller.rb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp app/views/users/change_password.html.erb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/
+cp app/views/users/_change_password_form.html.erb /home/johan/ruby/rails/nifty-generators/lib/generators/nifty/resets/templates/

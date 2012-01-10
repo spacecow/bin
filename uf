@@ -1,0 +1,10 @@
+#!/home/johan/.rvm/rubies/ruby-1.9.2-head/bin/ruby
+
+lines = %x(cat update | grep #{ARGV.shift}).split("\n")
+if lines.length > 1
+  puts "Ambigous match."
+  exit
+end
+%x(#{lines.shift})
+%x(cd /home/johan/ruby/rails/nifty-generators && git commit -am "#{ARGV.join(" ")}")
+%x(cd /home/johan/ruby/rails/nifty-generators && git push origin master)

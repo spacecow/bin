@@ -1,0 +1,8 @@
+#!/home/johan/.rvm/rubies/ruby-1.9.2-head/bin/ruby
+
+%x(ps aux).split("\n").each do |line|
+  if line =~ /rails s/
+    %x(kill -9 #{line.split[1]})
+    %x(echo "You killed rails!")
+  end
+end
